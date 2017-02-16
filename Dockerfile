@@ -10,10 +10,15 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86
 
 ENV PATH /opt/conda/bin:$PATH
 
-RUN conda install -y nose numpy pillow h5py
+RUN conda install -y nose numpy pillow h5py jupyter
 
 RUN conda install -c conda-forge tensorflow
 
 RUN pip install git+git://github.com/fchollet/keras.git
 
-ADD ./mnist_cnn.py ./mnist_cnn.py
+ADD ./mnist_cnn.ipynb ./mnist_cnn.ipynb
+ADD ./run_notebook.sh ./run_notebook.sh
+
+EXPOSE 8888
+
+CMD ["./run_notebook.sh"]
