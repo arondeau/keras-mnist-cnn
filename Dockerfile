@@ -18,6 +18,7 @@ RUN pip install git+git://github.com/fchollet/keras.git
 
 ADD ./mnist_cnn.ipynb ./mnist_cnn.ipynb
 ADD ./run_notebook.sh ./run_notebook.sh
+ADD ./four.png ./four.png
 
 EXPOSE 8888
 
